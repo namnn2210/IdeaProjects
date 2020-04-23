@@ -1,0 +1,5 @@
+[warn] scala-library-2.11.12-sources.jar no longer exists at /home/namngocngo22/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar
+[debug] "not up to date. inChanged = false, force = false
+[debug] Updating ProjectRef(uri("file:/Users/namngocngo22/Desktop/Workspace/IdeaProjects/spark_kudu/"), "spark_kudu")...
+[debug] Done updating ProjectRef(uri("file:/Users/namngocngo22/Desktop/Workspace/IdeaProjects/spark_kudu/"), "spark_kudu")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
