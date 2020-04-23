@@ -59,12 +59,13 @@ object KafkaToSparkToKudu {
       .select(
         (0 until 30).map(i => col("temp").getItem(i).as(yahooSchema.fieldNames.apply(i))): _*)
 
-    val master1 = "192.168.1.100:7051"
-    val master2 = "192.168.1.100:7151"
-    val master3 = "192.168.1.100:7251"
+    val master1 = "localhost:7051"
+    val master2 = "localhost:7151"
+    val master3 = "localhost:7251"
     val kuduMasters = Seq(master1, master2, master3).mkString(",")
 
     val kuduContext = new KuduContext(kuduMasters, sparkContext)
+
 
     val kuduTableName = "yahoo"
 
@@ -85,8 +86,8 @@ object KafkaToSparkToKudu {
 
     //WRITE STREAM TO KUDU TABLE
     df_value.writeStream
-      .options(Map("kudu.master"-> "192.168.1.100:7051", "kudu.table"-> "yahoo"))
-      .option("checkpointLocation","...")
+      .options(Map("kudu.master" -> "localhost:7051", "kudu.table" -> "yahoo"))
+      .option("checkpointLocation", "location")
       .outputMode("append")
       .format("kudu")
       .start()
